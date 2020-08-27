@@ -20,7 +20,11 @@ def predict():
     prediction =    model.predict(final_features)
     output = round(prediction[0], 7)
 
-    return render_template('index.html', prediction_text='Diabeties $ {}'.format(output))
+    if output==0:
+      return render_template('index.html', prediction_text='congratulations you have test negative for diabeties  ')
+    else:
+      return render_template('index.html', prediction_text='sorry you have test positive for diabeties  ')
+
 
 
 if __name__ == "__main__":
